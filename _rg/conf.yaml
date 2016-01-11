@@ -18,4 +18,4 @@ os:
         python           : "/usr/local/bin/python"
 
 MONITOR:
-            ALARM: ""     #例: "yangtao@360.cn,liufeng@360.cn"
+            ALARM: ""     #
