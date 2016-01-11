@@ -17,5 +17,9 @@ os:
         syslog           : "/usr/local/bin/syslog-ng"
         python           : "/usr/local/bin/python"
 
+hook: !G.hook
+    rc_before : "./bin/test_before.sh"
+    rc_after: "./bin/test_after.sh"
+
 MONITOR:
             ALARM: ""     #
