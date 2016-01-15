@@ -24,4 +24,4 @@ do
         [[ $files =~ $STATIC ]] && pub_qstatic
 done
 
-echo "发布完成..."
+echo "finish..."
