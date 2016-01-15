@@ -1,8 +1,7 @@
 prj: !G.conf
     version : "./version.txt"
-    service : "./_rg/res.yaml"
+    service : "./_rg/svc.yaml"
     publish : "./_rg/pub.yaml"
-    pub_ver : 2
     scm              : "git"
 
 os:
@@ -12,14 +11,21 @@ os:
         apache_ctrl      : "/usr/local/apache2/bin/apachectl"
         apache_conf_path : "/usr/local/apache2/conf/include"
         spawn_fcgi       : "/usr/local/bin/spawn-fcgi"
-        php_fpm          : "/usr/local/php-5.3/sbin/php-fpm"
-        php              : "/usr/local/php-5.3/bin/php"
+        php_fpm          : "/usr/local/php-5.6/sbin/php-fpm"
+        php              : "/usr/local/php-5.6/bin/php"
         syslog           : "/usr/local/bin/syslog-ng"
-        python           : "/usr/local/bin/python"
+        python           : "python"
+
+    ubuntu: !G.os_env
+        nginx_conf_path  : "/etc/nginx/sites-enabled"
+        apache_ctrl      : "/usr/local/apache2/bin/apachectl"
+        apache_conf_path : "/usr/local/apache2/conf/include"
+        spawn_fcgi       : "/usr/bin/spawn-fcgi"
+        php_cgi          : "/usr/bin/php5-cgi"
+        php_cgi          : "/usr/local/php/bin/php-cgi"
+        php              : "/usr/bin/php"
+        python           : "python"
+        syslog           : "/etc/rc.d/init.d/syslog-ng"
 
 hook: !G.hook
-    rc_before : "./bin/test_before.sh"
-    rc_after: "./bin/test_after.sh"
-
-MONITOR:
-            ALARM: ""     #
+        rc_after: "./bin/qstatic_monitor.sh"
