@@ -24,5 +24,8 @@ echo $FIXED_FILES;
 arr=($FIXED_FILES)
 for files in ${arr[@]}
 do
+        echo "----"$files
+        echo "*****"$STATIC
         [[ $files =~ $STATIC ]] && pub_qstatic
 done
+echo "fdafdasfdf"
