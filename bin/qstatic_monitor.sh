@@ -1,11 +1,9 @@
 #!/bin/bash
 
-echo "-----start"
 #需要更改此文件夹为静床路径
 STATIC="src/web_inf/fnt/statics/"
 
 PRJ_ROOT=`dirname "$0"`"/../"
-echo $PRJ_ROOT;
 STATIC_ROOT=$PRJ_ROOT$STATIC
 LATEST_TAG=`cat $PRJ_ROOT/version.txt`
 
@@ -20,11 +18,10 @@ function pub_qstatic()
 
 
 FIXED_FILES=`git show $LATEST_TAG --name-only | awk '{if(NR>6){print $0}}'`
-echo $FIXED_FILES;
 arr=($FIXED_FILES)
 for files in ${arr[@]}
 do
-        echo "----"$files
-        echo "*****"$STATIC
         [[ $files =~ $STATIC ]] && pub_qstatic
 done
+
+echo "发布完成..."
