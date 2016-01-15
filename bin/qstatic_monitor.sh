@@ -28,4 +28,3 @@ do
         echo "*****"$STATIC
         [[ $files =~ $STATIC ]] && pub_qstatic
 done
-echo "fdafdasfdf"
